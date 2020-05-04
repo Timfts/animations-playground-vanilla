@@ -1,0 +1,20 @@
+{
+  "name": "browser-modules-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tim Fontes",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "snowpack",
+    "start": "live-server src/",
+    "prepare:opt": "snowpack --optimize"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "snowpack": "^1.7.1"
+  },
+  "dependencies": {
+    "body-scroll-lock": "^3.0.2",
+    "ramda": "^0.27.0"
+  }
+}

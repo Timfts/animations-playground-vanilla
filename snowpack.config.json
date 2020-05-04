@@ -1,0 +1,5 @@
+{
+  "installOptions": {
+    "dest": "src/web_modules"
+  }
+}

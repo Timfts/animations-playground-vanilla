@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popmotion</title>
+    <style>
+      @import url("../../base/style/main.css");
+      .container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #ball {
+        background-color: var(--color-red);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="ball"></div>
+      <a href="/">go to</a>
+    </div>
+    <script type module src="../../base/main.js"></script>
+    <script type="module">
+      import {
+        styler,
+        spring,
+        listen,
+        pointer,
+        value,
+      } from "../../web_modules/popmotion.js";
+      const ball = document.querySelector("#ball");
+      const divStyler = styler(ball);
+      const ballXY = value({ x: 0, y: 0 }, divStyler.set);
+
+      listen(ball, "mousedown touchstart").start((e) => {
+        e.preventDefault();
+        pointer(ballXY.get()).start(ballXY);
+      });
+
+      listen(document, "mouseup touchend").start(() => {
+        spring({
+          from: ballXY.get(),
+          velocity: ballXY.getVelocity(),
+          to: { x: 0, y: 0 },
+          stiffness: 200,
+          // mass: 1,
+          // damping: 10
+        }).start(ballXY);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touch Animations</title>
+    <link rel="stylesheet" href="../../base/style/main.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="../../base/main.js"></script>
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+
+    <div class="desktop-overlay">
+      <p>please open on a mobile device or on devtools</p>
+    </div>
+    <div class="container">
+      <button onclick="batata()">teste</button>
+      <div
+        class="body-to-move"
+        ontouchstart="exported.circleGestures.touchStart(event, this)"
+        ontouchmove="exported.circleGestures.touchMove(event, this)"
+        onclick="exported.testEvent()"
+      ></div>
+    </div>
+  </body>
+</html>
